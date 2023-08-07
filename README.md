@@ -1,3 +1,14 @@
+## Play Ball!
+
+This project is a simple web implementation of the game "Strike and ball"
+Three modes are available : Solo play, vs Easy CPU, and vs Hard CPU
+
+#How to play:
+Guess a number! Every number must be (4) unique digits
+Receive feedback on the accuracy of the number
+"S" : strikes (the number is correctly contained at the position)
+"B" : balls (the number is included in your number, but not at the correct position)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +79,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# playball
+
