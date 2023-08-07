@@ -3,7 +3,7 @@
 This project is a simple web implementation of the game "Strike and ball"
 Three modes are available : Solo play, vs Easy CPU, and vs Hard CPU
 
-#How to play:
+# How to play:
 Guess a number! Every number must be (4) unique digits
 Receive feedback on the accuracy of the number
 "S" : strikes (the number is correctly contained at the position)
