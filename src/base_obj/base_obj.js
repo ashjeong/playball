@@ -17,7 +17,7 @@ function BaseObj(props) {
         var T = document.getElementById("success");
         T.style.display = "none";  // <-- Set it to block
         var A = document.getElementById("ginput");
-        A.style.display = "success";  // <-- Set it to block
+        A.style.display = "initial";  // <-- Set it to block
         var R = document.getElementById("reset");
         R.style.display = "none";  // <-- Set it to block
     };
@@ -101,8 +101,8 @@ function BaseObj(props) {
         <div style={{position:"absolute", top:"100px"}}>
             <div className="Guesses Guesses-solo">
                 <div className="form-group" id="ginput">
-                    <label for="guess" className="Guesses-label">Guess!</label>
-                    <input type="text" class="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <label htmlFor="guess" className="Guesses-label">Guess!</label>
+                    <input type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
                 </div>
                 <div className="Success" id="success">
                     <div className="Success-congrat">You got it!</div>
