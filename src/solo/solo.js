@@ -23,7 +23,7 @@ function Solo() {
                         ~ 💫 Solo Mode 💫 ~
                     </div>
                     <div style={{fontSize:"20px"}}>
-                        I've chosen a number~ Try to guess it!
+                        I've chosen a 4-digit number~ Try to guess it!
                     </div>
                     <div style={{fontSize:"15px"}}>
                         total games: {gameNum} || 
@@ -38,7 +38,7 @@ function Solo() {
                     Started Dev 7.18.23 @ Ashley Jeong
                 </div>
             </header>
-            <div style={{position:"absolute", top:"60px", left:"100px"}}>
+            <div style={{position:"absolute", top:"250px", left:"100px"}}>
                 <HowTo/>
             </div>
         </div>

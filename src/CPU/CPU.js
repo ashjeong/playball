@@ -35,7 +35,7 @@ function CPU(props) {
                 Started Dev 7.18.23 @ Ashley Jeong
             </div>
         </header>
-        <div style={{position:"absolute", top:"60px", left:"100px"}}>
+        <div style={{position:"absolute", top:"250px", left:"100px"}}>
             <HowTo/>
         </div>
         </div>

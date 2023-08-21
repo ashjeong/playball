@@ -153,15 +153,15 @@ function CPU_OBJ(props) {
     return (
         <div>
             <div className="form-group" style={{display:"block", marginTop:"50px", fontSize:"35px"}} id="tinput">
-                <div>I've chosen a number~ </div>
-                <label className="Guesses-label">Choose yours!</label>
-                <input type="text" className="form-control Guesses-input" id="ournum" value={yourNum} onChange={(e) => setYourNum(e.target.value)} onKeyDown={handleQuest}/>
+                <div>I've chosen my number~ </div>
+                <label className="Guesses-label">Choose a number for me to guess!</label>
+                <input autocomplete="off" type="text" className="form-control Guesses-input" id="ournum" value={yourNum} onChange={(e) => setYourNum(e.target.value)} onKeyDown={handleQuest}/>
             </div>
             <div style={{display:'none', gap: "50px"}} id="struct">
                 <div className="Guesses Guesses-easy">
                     <div className="form-group" id="ginput">
                         <label className="Guesses-label">Guess!</label>
-                        <input type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
+                        <input autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
                     </div>
                     <div className="Success" id="success">
                         <div className="Success-congrat">You got it!</div>

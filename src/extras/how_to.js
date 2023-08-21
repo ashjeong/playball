@@ -16,12 +16,6 @@ export function HowtoModal (props) {
       </Modal.Header>
       <Modal.Body>
         <p style={{fontSize:"20px"}}>I've picked a 4-digit number. It's up to you to guess it! </p>
-        {/* <h4>Modes</h4> 
-        <p>Solo - Play casually by yourself. Try to lower your average guess count per game.</p>
-        <p>Easy CPU - Play against an easy opponent! Give them a number to try to guess
-          and try guess theirs. Learn the game and its strageties while honing your skills</p>
-        <p>Hard CPU - You're playing against a hard opponent! Give them a number to try to guess
-          and try guess theirs. Be careful and calculative with your guesses to triumph.</p> */}
         <h4>Valid numbers</h4>
         <p style={{fontSize:"20px"}}>A valid guess or answer has 4 unique digits of 0-9.</p>
         <center>

@@ -104,7 +104,7 @@ function BaseObj(props) {
             <div className="Guesses Guesses-solo">
                 <div className="form-group" id="ginput">
                     <label htmlFor="guess" className="Guesses-label">Guess!</label>
-                    <input type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <input autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
                 </div>
                 <div className="Success" id="success">
                     <div className="Success-congrat">You got it!</div>
