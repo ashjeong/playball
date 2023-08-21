@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../App.css';
 
 
-function CPU_obj(props) {
+function CPU_OBJ(props) {
     const [allGuesses, setAllGuesses] = useState([]);
     const [allCPUGuesses, setAllCPUGuesses] = useState([]);
     const [ans, setAns] = useState([]);
@@ -20,16 +20,16 @@ function CPU_obj(props) {
         setAllCPUGuesses([])
         var T = document.getElementById("success");
         T.style.display = "none";  // <-- Set it to block
-        var T = document.getElementById("failure");
-        T.style.display = "none";  // <-- Set it to block
+        var Q = document.getElementById("failure");
+        Q.style.display = "none";  // <-- Set it to block
         var A = document.getElementById("ginput");
         A.style.display = "initial";  // <-- Set it to block
         var R = document.getElementById("reset");
         R.style.display = "none";  // <-- Set it to block
         var G = document.getElementById("struct");
         G.style.display = "none";  // <-- Set it to block
-        var G = document.getElementById("tinput");
-        G.style.display = "initial";  // <-- Set it to block
+        var E = document.getElementById("tinput");
+        E.style.display = "initial";  // <-- Set it to block
     };
 
     const ending = (win) => {
@@ -45,8 +45,8 @@ function CPU_obj(props) {
         }
        else {
             console.log("You lost ;-;")
-            var T = document.getElementById("failure");
-            T.style.display = "block";  // <-- Set it to block
+            var Q = document.getElementById("failure");
+            Q.style.display = "block";  // <-- Set it to block
             props.setLoses(prev => prev + 1);
        }
     }
@@ -148,7 +148,7 @@ function CPU_obj(props) {
         }
         console.log(props.NUM_LENGTH);
         getAns();
-    }, [gameNum]);
+    }, [gameNum, props.NUM_LENGTH]);
 
     return (
         <div>
@@ -216,4 +216,4 @@ function CPU_obj(props) {
     </div>
     )
 }
-export default CPU_obj;
+export default CPU_OBJ;

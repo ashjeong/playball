@@ -62,7 +62,7 @@ def create_guess(list):
 def gen_ans():
     args = request.args
     len = args.get("len")
-    l = [ i for i in list(range(10))]
+    l = [i for i in list(range(10))]
     random.shuffle(l)
     ret = l[:int(len)]
     return {"ans" : ret}
@@ -100,6 +100,7 @@ def cpu_guess():
     mode = str(args.get("mode"))
     print(mode)
     guess = []
+    ret = ""
 
     # setup potential
     potential = [ [] for i in range(size) ]
@@ -109,7 +110,6 @@ def cpu_guess():
 
     # first guess
     if len(allGuesses) == 0:
-        print("wtf")
         guess = create_guess(potential)
     else :
         # build background (based on 0/0 or 0B):
@@ -170,18 +170,37 @@ def cpu_guess():
             
             # for hard CPU
             # check against past answers & reject if invalid
+            print(guess)
+            print(allGuesses)
             if mode == "hard":
                 cont = check_past(allGuesses, size, guess)
-            if cont or guess in allGuesses:
+            if cont:
                 guess = []
                 cont = False
+                continue
+            reset = False
+
+            # change guess from list to string
+            for i in range(size):
+                ret += str(guess[i])
+            for i in allGuesses:
+                print(i)
+                print(guess)
+                print(i["guess"])
+                if i["guess"] == ret:
+                    print("in here")
+                    reset = True
+                    break
+            if reset:
+                guess = []
+                ret = ""
                 continue
             break
 
     # change guess from list to string
-    ret = ""
-    for i in range(size):
-        ret += str(guess[i])
+    if len(allGuesses) == 0:
+        for i in range(size):
+            ret += str(guess[i])
     res = {
         "guess": ret,
     }

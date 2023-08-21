@@ -85,6 +85,8 @@ function BaseObj(props) {
     };
 
     useEffect(() => {
+        console.log(props);
+        console.log(ans)
         // Creating + set Ans
         async function getAns() {
             const res = await fetch("/ans?" + new URLSearchParams({
