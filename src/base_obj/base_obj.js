@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import '../App.css';
 
 
@@ -123,7 +124,7 @@ function BaseObj(props) {
                 </div>
             </div>
             <div> 
-                <button className="Newgame" onClick={resetting} id="reset">New Game</button>
+                <Button className="Newgame" onClick={resetting} id="reset" style={{backgroundColor:"royalblue", color:"white"}}>New Game</Button>
             </div>
         </div> 
     )

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import '../App.css';
 
 
@@ -124,15 +125,27 @@ function CPU_OBJ(props) {
         }
     };
 
-    const handleQuest = (e) => {
+    async function handleQuest (e) {
+        var val = e.target.value;
+        const res = await checkGuess(val, [0, 0, 0, 0])
         if (e.key === 'Enter') {
-            setYourNum(e.target.value)
-            var G = document.getElementById("struct");
-            G.style.display = "flex";  // <-- Set it to block
-            var T = document.getElementById("tinput");
-            T.style.display = "none";  // <-- Set it to block
+            //invalid guess
+            if (!res["valid"]) {
+                e.target.classList.add('error');
+                // remove the class after the animation completes
+                setTimeout(function() {
+                    e.target.classList.remove('error');
+                }, 300);
+                setYourNum("")
+            }
+            else {
+                setYourNum(e.target.value)
+                var G = document.getElementById("struct");
+                G.style.display = "flex";  // <-- Set it to block
+                var T = document.getElementById("tinput");
+                T.style.display = "none";  // <-- Set it to block
+            }
         }
-
     };
 
     useEffect(() => {
@@ -153,12 +166,12 @@ function CPU_OBJ(props) {
     return (
         <div>
             <div className="form-group" style={{display:"block", marginTop:"50px", fontSize:"35px"}} id="tinput">
-                <div>I've chosen my number~ </div>
-                <label className="Guesses-label">Choose a number for me to guess!</label>
+                <div>The CPU has chosen their number~ </div>
+                <label className="Guesses-label">Choose a number for it to guess!</label>
                 <input autocomplete="off" type="text" className="form-control Guesses-input" id="ournum" value={yourNum} onChange={(e) => setYourNum(e.target.value)} onKeyDown={handleQuest}/>
             </div>
             <div style={{display:'none', gap: "50px"}} id="struct">
-                <div className="Guesses Guesses-easy">
+                <div className="Guesses Guesses-cpu">
                     <div className="form-group" id="ginput">
                         <label className="Guesses-label">Guess!</label>
                         <input autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
@@ -183,11 +196,8 @@ function CPU_OBJ(props) {
                         <div style={{gridColumn: "1/-1"}} id="invis1"></div>
                     </div>
                 </div>
-                <div className="Guesses Guesses-easy">
-                    <div>
-                        <div className="Guesses-label" style={{marginBottom:0}}>Your Number:</div>
-                        <div style={{fontSize:"50px"}}>{yourNum}</div>
-                    </div>
+                <div className="Guesses Guesses-cpu">
+                    <div className="Guesses-label" style={{marginBottom:0}}>The CPU is trying to guess your number: {yourNum}</div>
                     <div className="Guesses-items">
                         {allCPUGuesses.map((guess) => {
                             return (
@@ -211,7 +221,7 @@ function CPU_OBJ(props) {
                 </div>
             </div>
         <div> 
-            <button className="Newgame" onClick={resetting} id="reset">New Game</button>
+            <Button className="Newgame" onClick={resetting} id="reset" style={{backgroundColor:"royalblue", color:"white"}}>New Game</Button>
         </div>
     </div>
     )

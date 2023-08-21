@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import '../App.css';
-import './CPU.css'
 import { Link } from 'react-router-dom';
 import CPU_OBJ from '../base_obj/cpu_obj';
 import HowTo from '../extras/how_to';
@@ -14,7 +13,6 @@ function CPU(props) {
 
     return (
         <div className="App">
-        <header className="App-header">
             <div className="Title-header">
                 <Link to="/" className="Title">
                     ⚾ Strike and Ball ⚾
@@ -34,10 +32,9 @@ function CPU(props) {
             <div className="Ack"> 
                 Started Dev 7.18.23 @ Ashley Jeong
             </div>
-        </header>
-        <div style={{position:"absolute", top:"250px", left:"100px"}}>
-            <HowTo/>
-        </div>
+            <div className="How-to">
+                <HowTo/>
+            </div>
         </div>
     );
 }

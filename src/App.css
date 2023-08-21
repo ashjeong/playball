@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {
@@ -26,14 +34,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .Title-header {
@@ -46,6 +46,7 @@
 .Title {
   text-decoration: none;
   color: white;
+  margin: auto;
 }
 
 .Mode {
@@ -82,7 +83,7 @@
 
 .Guesses-items {
   width: 100%;
-  height: calc(100% - 275px);
+  height: calc(100% - 200px);
   overflow-y: auto;
   display: grid;
   grid-auto-rows: min-content;
@@ -93,6 +94,14 @@
 
 .Guesses-guess {
   margin: 0 15px 0 15px;
+}
+
+.Guesses-solo {
+  width: calc(100vw - 200px);
+}
+
+.Guesses-cpu {
+  width: calc(50vw - 125px);
 }
 
 .Success {
@@ -123,6 +132,12 @@
   bottom: 10px;
   right: 15px;
   font-size: 10px;
+}
+
+.How-to {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
 }
 
 .App-link {

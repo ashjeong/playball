@@ -36,7 +36,7 @@ export function HowtoModal (props) {
         <p style={{fontSize:"20px"}}>
           After submitting a number, I'll give you some feedback to tell you how close you are to my number!<br></br>
         </p>
-        <font style={{fontSize:"18px"}}><center><strong>To win, we need 4 Strikes!<br></br></strong></center></font>
+        <font style={{fontSize:"18px"}}><center><strong>To win, you need 4 Strikes!<br></br></strong></center></font>
           <strong>"S": Strikes</strong> - You have a digit that is the correct number and in the same position as in the answer. <br></br>
           <strong>"B": Balls</strong> - You have a digit that is included in the answer, but it isn't in the correct position. <br></br><br></br>
         <center>
