@@ -3,6 +3,7 @@ import '../App.css';
 import './CPU.css'
 import { Link } from 'react-router-dom';
 import CPU_OBJ from '../base_obj/cpu_obj';
+import HowTo from '../extras/how_to';
 
 const NUM_LENGTH = 4;
 
@@ -34,6 +35,9 @@ function CPU(props) {
                 Started Dev 7.18.23 @ Ashley Jeong
             </div>
         </header>
+        <div style={{position:"absolute", top:"60px", left:"100px"}}>
+            <HowTo/>
+        </div>
         </div>
     );
 }

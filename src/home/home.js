@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../App.css';
+import HowTo from '../extras/how_to';
 
 function Home() {
   return (
@@ -24,10 +25,14 @@ function Home() {
             </li>
           </ul>
         </div>
-      <div style={{position:"absolute", bottom:"10px", right:"15px", fontSize:"10px"}}> 
+      
+      </header>
+      <div style={{position:"absolute", bottom:"10px", right:"15px", fontSize:"10px", color:"white"}}> 
         Started Dev 7.18.23 @ Ashley Jeong
       </div>
-      </header>
+      <div style={{position:"absolute", top:"60px", left:"100px"}}>
+        <HowTo/>
+      </div>
     </div>
   );
 }

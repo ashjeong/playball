@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts --max-http-header-size=1024 start",
-    "start-backend": "cd backend && env/bin/flask run",
+    "start-backend": "cd backend && env/bin/flask run --no-debugger",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
