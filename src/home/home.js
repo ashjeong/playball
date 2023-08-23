@@ -5,58 +5,66 @@ import { Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
 
 const soloTooltip = (
   <Tooltip id="soloT">
-    <strong>Play casually by yourself.</strong> Try to lower your average guess count per game.
+    <strong>Play casually by yourself.</strong> <br></br>
+    Try to lower your average<br></br>
+    guess count per game.
   </Tooltip>
 );
 
 const easyTooltip = (
-  <Tooltip id="easyT">
-    <strong>Play against an easy opponent.</strong> Give them a number to guess
-          and try to guess theirs. Learn the game and its strategies while honing your skills.
+  <Tooltip id="easyT" style={{width:"400px"}}>
+    <strong>Play against an easy opponent.</strong><br></br>
+    Give them a number to guess<br></br>
+    and try to guess theirs. Learn the<br></br>
+    game and its strategies while <br></br>
+    honing your skills.
   </Tooltip>
 );
 
 const hardTooltip = (
   <Tooltip id="HardT">
-    <strong>Play against a hard opponent.</strong> Give them a number to guess
-          and try to guess theirs. Be careful and calculative with your guesses to triumph.
+    <strong>Play against a hard opponent.</strong><br></br>
+    Give them a number to guess<br></br>
+    and try to guess theirs. Be<br></br>
+    careful and calculative with<br></br>
+    your guesses to triumph.
   </Tooltip>
 );
 
 function Home() {
   return (
     <div className="App">
-      <div style={{position:"absolute", top:"50px"}}>
-        <Link to="/" style={{textDecoration:'none', color:"white"}}>
+      <div className="Title-header">
+        <Link to="/" className="Title">
           ⚾ Strike and Ball ⚾
         </Link>
       </div>
-      <div style={{position:"absolute", top:"125px"}}>
+      <div style={{position:"absolute", top:"125px", whiteSpace:"nowrap"}}>
         <HowTo/>
       </div>
       
-      Choose a Mode<br></br>
-      <font style={{fontSize:"20px"}}>Guess the 4-digit number!</font>
+      <font className="mode-colors">Choose a Mode<br></br></font>
+      <font className="mode-colors" style={{fontSize:"20px"}}>Guess the 4-digit number!</font>
       <div style={{marginTop:"50px"}}>
         <ul className="nav justify-content-center" style={{display:"block"}}>
           <li className="nav-item" style={{marginBottom:"15px"}}>
             <OverlayTrigger placement="right" overlay={soloTooltip}>
-              <a className="nav-link" href="solo">💫 Solo 💫</a>
+              <Button className="nav-link mode-button" href="solo">💫 Solo 💫</Button>
             </OverlayTrigger>
           </li>
           <li className="nav-item" style={{marginBottom:"15px"}}>
             <OverlayTrigger placement="right" overlay={easyTooltip}>
-              <a className="nav-link" href="easy">💡 Easy CPU 💡</a>
+              <Button className="nav-link mode-button" href="easy">💡 Easy CPU 💡</Button>
             </OverlayTrigger>
           </li>
           <li className="nav-item" style={{marginBottom:"15px"}}>
             <OverlayTrigger placement="right" overlay={hardTooltip}>
-              <a className="nav-link" href="hard">🔥 Hard CPU 🔥</a>
+              <Button className="nav-link mode-button" href="hard">🔥 Hard CPU 🔥</Button>
             </OverlayTrigger>
           </li>
         </ul>
       </div>
-      <div style={{position:"absolute", bottom:"10px", right:"15px", fontSize:"10px", color:"white"}}> 
+      <div className="Ack"> 
         Started Dev 7.18.23 @ Ashley Jeong
       </div>
     </div>

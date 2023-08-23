@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import '../App.css';
 
@@ -7,6 +7,7 @@ function BaseObj(props) {
     const [allGuesses, setAllGuesses] = useState([]);
     const [guess, setGuess] = useState("");
     const [ans, setAns] = useState([]);
+    const guessInput = useRef();
     
 
     const resetting = (e) => {
@@ -21,6 +22,7 @@ function BaseObj(props) {
         A.style.display = "initial";  // <-- Set it to block
         var R = document.getElementById("reset");
         R.style.display = "none";  // <-- Set it to block
+        guessInput.current.focus();
     };
 
     const youwin = () => {
@@ -65,10 +67,10 @@ function BaseObj(props) {
             else {
                 console.log(allGuesses)
                 setAllGuesses(prev => [...prev, {"val":val, "S":res["strikes"], "B":res["balls"]}]);
-                props.setTotalGuesses(prev => prev + 1);
                 var inv = document.getElementById("invis");
                 inv.scrollIntoView({behavior: "smooth"})
             }
+            props.setTotalGuesses(prev => prev + 1);
         }
         return res;
     }
@@ -101,11 +103,11 @@ function BaseObj(props) {
     }, [props.gameNum]);
 
     return (
-        <div style={{position:"absolute", top:"100px"}}>
+        <div className="Base-start">
             <div className="Guesses Guesses-solo">
                 <div className="form-group" id="ginput">
                     <label htmlFor="guess" className="Guesses-label">Guess!</label>
-                    <input autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <input autoFocus ref={guessInput} autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown} autofocus/>
                 </div>
                 <div className="Success" id="success">
                     <div className="Success-congrat">You got it!</div>
@@ -124,7 +126,7 @@ function BaseObj(props) {
                 </div>
             </div>
             <div> 
-                <Button className="Newgame" onClick={resetting} id="reset" style={{backgroundColor:"royalblue", color:"white"}}>New Game</Button>
+                <Button className="Newgame" onClick={resetting} id="reset">New Game</Button>
             </div>
         </div> 
     )

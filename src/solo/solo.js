@@ -17,18 +17,22 @@ function Solo() {
                 <Link to="/" className="Title">
                     ⚾ Strike and Ball ⚾
                 </Link>
-                <div className="Mode">
+                <div className="Mode" style={{whiteSpace:"nowrap"}}>
                     ~ 💫 Solo Mode 💫 ~
                 </div>
-                <div style={{fontSize:"20px"}}>
-                    I've chosen a 4-digit number~ Try to guess it!
-                </div>
-                <div style={{fontSize:"15px"}}>
-                    total games: {gameNum} || 
-                    average number of guesses: {gameNum === 0 ? 0 : Math.round(totalGuessesGames*100.0/gameNum)/100}
-                </div>
-                <div style={{fontSize:"15px"}}>
-                    total guesses: {totalGuesses}
+                <font style={{fontSize:"18px", whiteSpace:"nowrap"}}>
+                    I've chosen a 4-digit number. Try to guess it!
+                </font>
+                <div style={{display:"flex", justifyContent:"center", marginTop:"10px", flexWrap:"wrap"}}>
+                    <div style={{padding:"3px 10px 5px 10px", fontSize:"15px", backgroundColor:"#252B2D", margin: "0px 5px 5px 5px", borderRadius:"3px", whiteSpace:"nowrap"}}>
+                        total games: {gameNum}
+                    </div>
+                    <div style={{padding:"3px 10px 5px 10px", fontSize:"15px", backgroundColor:"#252B2D", marginRight:"5px", marginBottom:"5px", borderRadius:"3px", whiteSpace:"nowrap"}}>
+                        avg guesses/round: {gameNum === 0 ? 0 : Math.round(totalGuessesGames*100.0/gameNum)/100}
+                    </div>
+                    <div style={{padding:"3px 10px 5px 10px", fontSize:"15px", backgroundColor:"#252B2D", margin: "0px 5px 5px 0px", borderRadius:"3px", whiteSpace:"nowrap"}}>
+                        total guesses this round: {totalGuesses}
+                    </div>
                 </div>
             </div>
                 <BaseObj NUM_LENGTH={NUM_LENGTH} totalGuesses={totalGuesses} gameNum={gameNum} setGameNum={setGameNum} setTotalGuesses={setTotalGuesses} setTotalGuessesGames={setTotalGuessesGames}/>
