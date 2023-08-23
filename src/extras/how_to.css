@@ -1,0 +1,28 @@
+.HowTo-example {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.HowTo-example-correct {
+  background-color: #9DFF91;
+}
+
+.HowTo-example-wrong {
+  background-color: #FF9191;
+}
+
+.HowTo-example-ball {
+  background-color: #C1CAFF;
+  text-decoration: underline;
+}
+
+.HowTo-example-block {
+  display: block;
+  font-size: 40px;
+}
+
+.HowTo-button {
+  background-color: #47769A;
+  border-color: #47769A;
+}
