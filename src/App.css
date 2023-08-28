@@ -44,6 +44,10 @@
   white-space: nowrap;
 }
 
+.Title:hover {
+  color: #378aab;
+}
+
 .Title-header {
   position: absolute;
   top: 50px;
@@ -187,6 +191,10 @@
 
 .modal-content {
   min-width: 500px;
+}
+
+.nav-link:hover {
+  color:white;
 }
 
 @keyframes App-logo-spin {
