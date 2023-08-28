@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import CPU_OBJ from '../base_obj/cpu_obj';
@@ -7,8 +7,21 @@ import HowTo from '../extras/how_to';
 const NUM_LENGTH = 4;
 
 function CPU(props) {
-    const [wins, setWins] = useState(0);
-    const [loses, setLoses] = useState(0);
+    var type = props.mode;
+    const [wins, setWins] = useState(sessionStorage.getItem(type + 'Wins') === null ? 0 : sessionStorage.getItem(type + 'Wins'));
+    const [loses, setLoses] = useState(sessionStorage.getItem(type + 'Losses') === null ? 0 : sessionStorage.getItem(type + 'Losses'));
+
+
+    useEffect(() => {
+        if (sessionStorage.getItem(type + 'Wins') === null) {
+            sessionStorage.setItem(type + 'Wins', 0);
+            sessionStorage.setItem(type + 'Losses', 0);
+        }
+        else {
+            sessionStorage.setItem(type + 'Wins', wins);
+            sessionStorage.setItem(type + 'Losses', loses);
+        }
+    },[wins, loses]);
 
     return (
         <div className="App">

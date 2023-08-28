@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import BaseObj from '../base_obj/base_obj';
@@ -7,9 +7,20 @@ import HowTo from '../extras/how_to';
 const NUM_LENGTH = 4;
 
 function Solo() {
-    const [totalGuessesGames, setTotalGuessesGames] = useState(0);
+    const [totalGuessesGames, setTotalGuessesGames] = useState(sessionStorage.getItem('soloTotGuessesNum')  === null ? 0 : sessionStorage.getItem('soloTotGuessesNum'));
     const [totalGuesses, setTotalGuesses] = useState(0);
-    const [gameNum, setGameNum] = useState(0);
+    const [gameNum, setGameNum] = useState(sessionStorage.getItem('soloGameNum')  === null ? 0 : sessionStorage.getItem('soloGameNum'));
+
+    useEffect(() => {
+        if (sessionStorage.getItem('soloGameNum') === null) {
+            sessionStorage.setItem('soloGameNum', 0);
+            sessionStorage.setItem('soloTotGuessesNum', 0);
+        }
+        else {
+            sessionStorage.setItem('soloTotGuessesNum', totalGuessesGames);
+            sessionStorage.setItem('soloGameNum', gameNum);
+        }
+    },[gameNum]);
 
     return (
         <div className="App">
@@ -35,7 +46,7 @@ function Solo() {
                     </div>
                 </div>
             </div>
-                <BaseObj NUM_LENGTH={NUM_LENGTH} totalGuesses={totalGuesses} gameNum={gameNum} setGameNum={setGameNum} setTotalGuesses={setTotalGuesses} setTotalGuessesGames={setTotalGuessesGames}/>
+                <BaseObj NUM_LENGTH={NUM_LENGTH} totalGuesses={totalGuesses} gameNum={gameNum} totalGuessesGames={totalGuessesGames} setGameNum={setGameNum} setTotalGuesses={setTotalGuesses} setTotalGuessesGames={setTotalGuessesGames}/>
             <div className="Ack"> 
                 Started Dev 7.18.23 @ Ashley Jeong
             </div>

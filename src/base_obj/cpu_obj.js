@@ -170,13 +170,13 @@ function CPU_OBJ(props) {
             <div className="form-group CPU-start" id="tinput">
                 <div>The CPU has chosen their number. </div>
                 <div className="Guesses-label">Choose a number for it to guess!</div>
-                <input autoFocus ref={cpuguess} autocomplete="off" type="text" className="form-control Guesses-input" id="ournum" value={yourNum} onChange={(e) => setYourNum(e.target.value)} onKeyDown={handleQuest}/>
+                <input autoFocus ref={cpuguess} autoComplete="off" type="text" className="form-control Guesses-input" id="ournum" value={yourNum} onChange={(e) => setYourNum(e.target.value)} onKeyDown={handleQuest}/>
             </div>
             <div style={{display:'none', gap: "50px"}} id="struct">
                 <div className="Guesses Guesses-cpu">
                     <div className="form-group" id="ginput">
                         <div className="Guesses-label">Guess the CPU's number!</div>
-                        <input ref={guessInput} autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
+                        <input ref={guessInput} autoComplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
                     </div>
                     <div className="Success" id="success">
                         <div className="Success-congrat">You got it!</div>

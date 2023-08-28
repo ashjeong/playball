@@ -12,9 +12,7 @@ function BaseObj(props) {
 
     const resetting = (e) => {
         setAllGuesses([]);
-        props.setTotalGuessesGames(prev => prev + props.totalGuesses);
         props.setTotalGuesses(0);
-        setGuess("");
         props.setGameNum(prev => prev + 1);
         var T = document.getElementById("success");
         T.style.display = "none";  // <-- Set it to block
@@ -26,7 +24,9 @@ function BaseObj(props) {
     };
 
     const youwin = () => {
-        console.log("Congrats you guessed the number")
+        props.setTotalGuessesGames(prev => prev + props.totalGuesses);
+        console.log("Congrats you guessed the number");
+        setGuess("");
         var T = document.getElementById("success");
         T.style.display = "block";  // <-- Set it to block
         var A = document.getElementById("ginput");
@@ -61,6 +61,7 @@ function BaseObj(props) {
             e.preventDefault();
         }
         else {
+            props.setTotalGuesses(prev => prev + 1);
             if (res["strikes"] === 4) {
                 youwin();
             }
@@ -70,7 +71,6 @@ function BaseObj(props) {
                 var inv = document.getElementById("invis");
                 inv.scrollIntoView({behavior: "smooth"})
             }
-            props.setTotalGuesses(prev => prev + 1);
         }
         return res;
     }
@@ -107,7 +107,7 @@ function BaseObj(props) {
             <div className="Guesses Guesses-solo">
                 <div className="form-group" id="ginput">
                     <label htmlFor="guess" className="Guesses-label">Guess!</label>
-                    <input autoFocus ref={guessInput} autocomplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown} autofocus/>
+                    <input autoFocus ref={guessInput} autoComplete="off" type="text" className="form-control Guesses-input" id="guess" value={guess} onChange={(e) => setGuess(e.target.value)} onKeyDown={handleKeyDown}/>
                 </div>
                 <div className="Success" id="success">
                     <div className="Success-congrat">You got it!</div>
